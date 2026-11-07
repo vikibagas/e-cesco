@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\MasterData\UserClientController;
-use App\Http\Controllers\MasterData\UserController;
 use App\Http\Controllers\MasterData\CabangController;
 use App\Http\Controllers\MasterData\KustomerController;
+use App\Http\Controllers\MasterData\UserClientController;
+use App\Http\Controllers\MasterData\UserController;
 use App\Http\Controllers\Shipments\ShipmentController;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Route;
@@ -29,10 +29,23 @@ Route::middleware('portal.auth')->group(function (): void {
         ->name('e-cesco.shipments.update');
     Route::post('/e-cesco/shipments/{shipment}/cancel', [ShipmentController::class, 'cancel'])
         ->name('e-cesco.shipments.cancel');
+    Route::get('/e-cesco/shipments/{shipment}/status', [ShipmentController::class, 'status'])
+        ->name('e-cesco.shipments.status');
+    Route::get('/e-cesco/shipments/{shipment}/delivery-photo', [ShipmentController::class, 'deliveryPhoto'])
+        ->name('e-cesco.shipments.delivery-photo');
+    Route::put('/e-cesco/shipments/{shipment}/pickup-date', [ShipmentController::class, 'updatePickupDate'])
+        ->name('e-cesco.shipments.pickup-date');
+    Route::post('/e-cesco/shipments/import', [ShipmentController::class, 'import'])
+        ->middleware('throttle:5,1')
+        ->name('e-cesco.shipments.import');
     Route::get('/e-cesco/shipments/{shipment}/print-awb', [ShipmentController::class, 'printAwb'])
         ->name('e-cesco.shipments.print-awb');
     Route::get('/e-cesco/shipments/{shipment}/print-label', [ShipmentController::class, 'printLabel'])
         ->name('e-cesco.shipments.print-label');
+    Route::get('/e-cesco/shipments/{shipment}/print-inspection', [ShipmentController::class, 'printInspection'])
+        ->name('e-cesco.shipments.print-inspection');
+    Route::get('/e-cesco/shipments/{shipment}/print-asus', [ShipmentController::class, 'printAsus'])
+        ->name('e-cesco.shipments.print-asus');
 
     Route::prefix('/e-cesco/master-data')
         ->name('e-cesco.master-data.')
