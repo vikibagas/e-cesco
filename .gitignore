@@ -1,0 +1,17 @@
+# Local credentials and runtime data
+.env*
+/config/connection.php
+/config/db_connect*.php
+/config/encrypt.php
+/config/vendor/
+/config/uploads/
+/upload/
+/error_log
+/reportsnew/delivery_photo/
+/reportsnew/awbdelivery_photo/
+*.log
+*.xlsx
+*.xls
+*.csv
+*.pdf
+*.zip
