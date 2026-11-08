@@ -64,7 +64,7 @@ $injeksi_password = mysqli_real_escape_string($con, $password);
 		");
 		mysqli_query($con, "update user set jumlahlogin=$r[jumlahlogin]+1 where id_user='$r[id_user]'");
 		
-		header('Location: main?module=home');
+		header('Location: main.php?module=home');
 		echo 'masuk';
 	}
 	else{
@@ -90,7 +90,7 @@ $injeksi_password = mysqli_real_escape_string($con, $password);
 
 			mysqli_query($con, "insert into user_client_history (id_user,tanggal) values('$rcustomer[id_user]',now())");
 			
-			header('Location: client/main?module=home');
+			header('Location: client/main.php?module=home');
 
 		}else{
 		header('Location: login');
