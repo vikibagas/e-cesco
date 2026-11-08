@@ -42,7 +42,7 @@
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <p class="login-box-msg">Sign in to start your session</p>
-        <form action="/e-cesco/login-action" method="post" autocomplete="off">
+        <form action="login_action.php" method="post" autocomplete="off">
           <div class="form-group has-feedback">
             <input type="username" name="username" class="form-control" placeholder="Username">
             <span class="glyphicon glyphicon-user form-control-feedback"></span>
