@@ -64,7 +64,7 @@ $injeksi_password = mysqli_real_escape_string($con, $password);
 		");
 		mysqli_query($con, "update user set jumlahlogin=$r[jumlahlogin]+1 where id_user='$r[id_user]'");
 		
-		header('location:/e-cesco/main?module=home');
+		header('Location: main?module=home');
 		echo 'masuk';
 	}
 	else{
@@ -90,10 +90,10 @@ $injeksi_password = mysqli_real_escape_string($con, $password);
 
 			mysqli_query($con, "insert into user_client_history (id_user,tanggal) values('$rcustomer[id_user]',now())");
 			
-			header('location:/e-cesco/client/main?module=home');
+			header('Location: client/main?module=home');
 
 		}else{
-		header('location:/e-cesco/login');
+		header('Location: login');
 		}
 
 	}
