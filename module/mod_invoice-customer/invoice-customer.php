@@ -448,9 +448,9 @@ else
 									 
 								</strong>
 								<br>
-	            				'.strtoupper($custom_alamat).' '.$button_edit_custom_alamat.'<br>
-	            				'.strtoupper($nama_kota).'<br>
-							'.strtoupper($kota).'<br>
+	            				'.strtoupper((string)$custom_alamat).' '.$button_edit_custom_alamat.'<br>
+	            				'.strtoupper((string)$nama_kota).'<br>
+							'.strtoupper((string)$kota).'<br>
 	            			'.$phone.'
 	          				</address>';
           				if($id_tagihan != null){
@@ -1136,8 +1136,8 @@ else
 							//$disableTagihkan = (($cekCostOut == "" && $cekCostIn == "" && $cekCostDeliv == "" && $cekCostPick == "" && $cekCostAgent == "") || $u['level'] == 'admin') ? '' : ' disabled ';
 							$disableTagihkan = '';
 
-							$lokasiAsalShow = ($row['id_kecamatan_asal']>0 ? strtoupper($row['kec_asal']).', ' : '').strtoupper($lokasi_asal);
-							$lokasiTujuanShow = ($row['id_kecamatan_tujuan']>0 ? strtoupper($row['kec_tujuan']).', ' : '').strtoupper($lokasi_tujuan);
+							$lokasiAsalShow = ($row['id_kecamatan_asal']>0 ? strtoupper((string)$row['kec_asal']).', ' : '').strtoupper((string)$lokasi_asal);
+							$lokasiTujuanShow = ($row['id_kecamatan_tujuan']>0 ? strtoupper((string)$row['kec_tujuan']).', ' : '').strtoupper((string)$lokasi_tujuan);
 
 							echo'
 							<tr>
@@ -1151,14 +1151,14 @@ else
 													 && isset($row['service_id']) 
 													 && in_array($row['service_id'], [1, 2, 3]) 
  														? '<span style="color:red;"><b>***</b></span>' : '').'</td>
-								<td width="20px">'.($row['jenis_barang'] == "" ? $row['komoditi'] : $row['komoditi'] ).', '.  strtoupper($row['jenis_barang']).', '.strtoupper($row['catatan']);
+								<td width="20px">'.($row['jenis_barang'] == "" ? $row['komoditi'] : $row['komoditi'] ).', '.  strtoupper((string)$row['jenis_barang']).', '.strtoupper((string)$row['catatan']);
 								if($row['jenis_komoditi'] == 1 and $row['id_kustomer'] == 13){
 									echo '<a href="#" onclick="search_jenisbarang(this);" id="searchjenisbarang" class="searchjenisbarang" data-id="'.$row['id_kustomer'].'" data-type="'.$row['jenis_barang'].'" data-toggle="modal" data-target="#modal-jenisbarang"> <i class="fa fa-search"></i> </a> ';
 								}
 								echo '
 
 								</td>
-								<td width="20px">'.strtoupper($row['service']).'</td>
+								<td width="20px">'.strtoupper((string)$row['service']).'</td>
 								';
 								/*	if($id_kustomer == 106){
 										 $produk = '';
@@ -1180,19 +1180,19 @@ else
 										echo '<td>'.$row['product_list'].'</td>';
 								}								
 								echo '
-								<td width="20px">'.strtoupper($row['namakustomer']).'</td>
-								<td width="20px">'.strtoupper($row['loc_code']).'</td>
+								<td width="20px">'.strtoupper((string)$row['namakustomer']).'</td>
+								<td width="20px">'.strtoupper((string)$row['loc_code']).'</td>
 								
-								<td width="20px">'.strtoupper($row['nama_pengirim']).'</td>
-								<td width="20px">'.strtoupper($row['perusahaan_pengirim']).'</td>
-								<td width="20px">'.($row['id_kecamatan_asal']>0 ? strtoupper($row['kec_asal']).', ' : '').strtoupper($lokasi_asal).'</td>
-								<td width="50px">'.strtoupper($row['alamat_pengirim']).'</td>
-								<td width="20px">'.strtoupper($row['perusahaan_penerima']).'</td>
-								<td width="20px">'.strtoupper($row['nama_penerima']).'</td>
-								<td width="20px">'.($row['id_kecamatan_tujuan']>0 ? strtoupper($row['kec_tujuan']).', ' : '').strtoupper($lokasi_tujuan).'</td>
-								<td width="20px">'.strtoupper($row['alamat_penerima']).'</td>
-								<td width="20px">'.strtoupper($row['delivery_name']).'</td>
-								<td width="20px">'.strtoupper($row['delivery_date']).'</td>
+								<td width="20px">'.strtoupper((string)$row['nama_pengirim']).'</td>
+								<td width="20px">'.strtoupper((string)$row['perusahaan_pengirim']).'</td>
+								<td width="20px">'.($row['id_kecamatan_asal']>0 ? strtoupper((string)$row['kec_asal']).', ' : '').strtoupper((string)$lokasi_asal).'</td>
+								<td width="50px">'.strtoupper((string)$row['alamat_pengirim']).'</td>
+								<td width="20px">'.strtoupper((string)$row['perusahaan_penerima']).'</td>
+								<td width="20px">'.strtoupper((string)$row['nama_penerima']).'</td>
+								<td width="20px">'.($row['id_kecamatan_tujuan']>0 ? strtoupper((string)$row['kec_tujuan']).', ' : '').strtoupper((string)$lokasi_tujuan).'</td>
+								<td width="20px">'.strtoupper((string)$row['alamat_penerima']).'</td>
+								<td width="20px">'.strtoupper((string)$row['delivery_name']).'</td>
+								<td width="20px">'.strtoupper((string)$row['delivery_date']).'</td>
 
 
 								
@@ -1329,7 +1329,7 @@ else
 								echo '
 								</td>
 
-								<td align="right" align="right">'.strtoupper($row['packing_kayu']).' <a href="#" class="cust_packing" data-type="text" data-pk="'.$row['id_pengiriman'].'">'.number_format($row['biaya_packing']).'</a></td>
+								<td align="right" align="right">'.strtoupper((string)$row['packing_kayu']).' <a href="#" class="cust_packing" data-type="text" data-pk="'.$row['id_pengiriman'].'">'.number_format($row['biaya_packing']).'</a></td>
 								<td align="right" align="right">'.$row['asuransi'].' <a href="#" class="cust_asuransi" data-type="text" data-pk="'.$row['id_pengiriman'].'">'.number_format($row['biaya_asuransi']).'</a></td>
 
 								<td>'
